@@ -1,0 +1,76 @@
+<!doctype html>
+<html ng-app="ui.bootstrap.demo">
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/0.8.3/angular-moment.js"></script>
+    <script src="time.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+ 
+<div ng-controller="DatepickerDemoCtrl">
+    <div class="row">
+        <div class="col-md-3">
+            <h4>Start time</h4>
+              [ <a href="" ng-click="archive()">archive</a> ]
+
+            <p class="input-group">
+              <input type="time" class="form-control" format="HH:mm" ng-model="startDate" ng-required="true" />
+ 
+            </p>
+        </div>
+        <div class="col-md-3">
+            <h4>End time</h4>
+ 
+            <p class="input-group">
+              <input type="time" class="form-control" format="HH:mm" ng-model="endDate"  ng-required="true"/>
+            </p>
+        </div>
+
+                <div class="col-md-3">
+            <h4>Text</h4>
+ 
+        <form ng-submit="addTodo(startDate, endDate)">
+        <input type="text" ng-model="todoText"  size="30"
+               placeholder="project name">
+        <input class="btn-primary" type="submit" value="add">
+      </form>
+        </div>
+    </div>
+ 
+ 
+    <div class="row">
+ <ul>
+     <li ng-repeat="todo in todos">
+    
+            <span class="done">{{todo.text}}</span>
+        </li>
+ </ul>
+    </div>
+ 
+ 
+    <hr />
+ 
+    <div class="row">
+        <div class="col-md-6">
+        <pre>Start Date: <em>{{startDate | date:'HH:mm' }}</em></pre>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+        <pre>End Date: <em>{{endDate | date:'HH:mm' }}</em></pre>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+        <pre>Duration: <em>{{getDuration(startDate, endDate)}}</em></pre>
+ 
+    </div>
+    </div>
+     
+
+</div>
+</body>
+</html>
