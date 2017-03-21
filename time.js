@@ -11,13 +11,28 @@ angular.module('ui.bootstrap.demo').controller('DatepickerDemoCtrl', function($s
     ];
 
 
+    $scope.dateToday = function() {
+      $scope.todayDate = new moment().format('DD-MMM-YYYY');
+
+    };
+
+    $scope.dateToday();
+
    $scope.addTodo = function(start,end) {
 var startTime=moment(start, "HH:mm");
 var endTime=moment(end, "HH:mm");
 var duration = moment.duration(endTime.diff(startTime));
 var hours = parseInt(duration.asHours());
 var minutes = parseInt(duration.asMinutes())-hours*60;
-      $scope.todos.push({text:$scope.todoText, done:true}, {text:$scope.getDuration(start,end)});
+
+      $scope.todos.push(
+
+        {text:$scope.todayDate},
+        {text:"Titel: " + $scope.todoText},
+        {text:"When " + $scope.startDate + "-" + $scope.endDate},
+        {text: "Total: " + $scope.getDuration(start,end)
+      });
+
 
       $scope.todoText = '';
     };
@@ -32,17 +47,17 @@ var minutes = parseInt(duration.asMinutes())-hours*60;
  
   $scope.formats = ['HH:mm'];
   $scope.format = $scope.formats[2];
- 
+
+
   // duration
   $scope.getDuration = function(start, end) {
  
-
-var startTime=moment(start, "HH:mm");
-var endTime=moment(end, "HH:mm");
-var duration = moment.duration(endTime.diff(startTime));
-var hours = parseInt(duration.asHours());
-var minutes = parseInt(duration.asMinutes())-hours*60;
-console.log(hours + ' hour and '+ minutes+' minutes.');
+  var startTime=moment(start, "HH:mm");
+  var endTime=moment(end, "HH:mm");
+  var duration = moment.duration(endTime.diff(startTime));
+  var hours = parseInt(duration.asHours());
+  var minutes = parseInt(duration.asMinutes())-hours*60;
+ 
     try {
       return (hours + ' hour and '+ minutes+' minutes.');
     } catch (e) {

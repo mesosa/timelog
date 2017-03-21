@@ -43,18 +43,22 @@
  
     <div class="row">
  <ul>
-     <li ng-repeat="todo in todos">
+     <li ng-repeat="todo in todos" ng-class="{'last': $last,'first': $first}">
     
             <span class="done">{{todo.text}}</span>
+
         </li>
+        
  </ul>
+
     </div>
  
- 
+
     <hr />
  
     <div class="row">
         <div class="col-md-6">
+        <em>{{todayDate | date:"MM-DD-YYYY"}}
         <pre>Start Date: <em>{{startDate | date:'HH:mm' }}</em></pre>
     </div>
     </div>
