@@ -1,6 +1,9 @@
-Add real time before hours worked
-Add projectname as "remembered" SÅ DEN KOMMER IHÅG VAD DU SKREV IN
-Save to file? Localstorage? Vad som
-Archive, arkivera äldre datum än 24 timmar 
-Visa datum för varje tid reggad 
-Auto spara till fil?
+#Timelog
+
+###Todo
+1. Add real time before hours worked
+2. Add projectname as "remembered"
+3. Save to file? Localstorage?
+4. Archive
+5. Show date to register time
+6. Auto save to storage?
